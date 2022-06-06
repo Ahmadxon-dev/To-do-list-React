@@ -2,14 +2,14 @@ import React from 'react';
 import TableHead from './TableHead';
 import TableItem from './TableItem';
 
-const TableList = ({posts_bu_obyekt}) => {
+const TableList = ({posts_bu_obyekt, remove}) => {
   return (
     <>
     <table className='table'>
         <TableHead />
         <tbody>
           {posts_bu_obyekt.map(post_parametr => (
-            <TableItem posts={post_parametr} key={post_parametr.id}/>
+            <TableItem remove={remove} posts={post_parametr} key={post_parametr.id}/>
           ))}
         </tbody>
 

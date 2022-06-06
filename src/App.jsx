@@ -24,7 +24,9 @@ function App() {
     setTitle('')
     setStack('')
   }
-
+  const removepost = (post) => {
+    setPosts(posts.filter(s => s.id !== post.id))
+  }
   return (
     <div className='mx-auto app'>
       <form >
@@ -44,7 +46,12 @@ function App() {
          />
          <button onClick={addpost} className='btn btn-success w-100'>Add post</button>
       </form>
-      <TableList posts_bu_obyekt={posts}/>  
+        {
+          posts.length > 0 ?
+          <TableList posts_bu_obyekt={posts} remove={removepost}/>
+          :
+          <h4 className='text-center my-3 text-danger'>No posts</h4>
+        }
     </div>
   );
 }
